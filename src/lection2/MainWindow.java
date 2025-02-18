@@ -14,10 +14,26 @@ public class MainWindow extends JFrame {
         setBackground(Color.GRAY);
         setBounds(POS_X, POS_Y, WINDOWS_WIDTH, WINDOWS_HEIHGT);
         setTitle("Circles");
+
+        MainCanvas canvas = new MainCanvas();
+        add(canvas);
         setVisible(true);
+    }
+
+    public void onDrawFrame() {
+        update();
+        render();
+    }
+
+    private void update() {
+    }
+
+    private void render() {
     }
 
     public static void main(String[] args) {
         new MainWindow();
     }
+
+
 }
