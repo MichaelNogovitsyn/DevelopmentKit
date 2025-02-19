@@ -15,20 +15,20 @@ public class MainWindow extends JFrame {
         setBounds(POS_X, POS_Y, WINDOWS_WIDTH, WINDOWS_HEIHGT);
         setTitle("Circles");
 
-        MainCanvas canvas = new MainCanvas();
+        MainCanvas canvas = new MainCanvas(this);
         add(canvas);
         setVisible(true);
     }
 
-    public void onDrawFrame() {
-        update();
-        render();
+    public void onDrawFrame(MainCanvas canvas, Graphics g, float deltaTime) {
+        update(canvas, deltaTime);
+        render(canvas, g);
     }
 
-    private void update() {
+    private void update(MainCanvas canvas, float deltaTime) {
     }
 
-    private void render() {
+    private void render(MainCanvas canvas,Graphics g) {
     }
 
     public static void main(String[] args) {
