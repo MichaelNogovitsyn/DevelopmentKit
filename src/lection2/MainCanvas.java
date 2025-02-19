@@ -23,9 +23,11 @@ private  long lastFrameTime;
         catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        controller.setBackground(Color.CYAN);
         float deltaTime = (System.nanoTime() - lastFrameTime)*0.000000001f;
         controller.onDrawFrame(this,g,deltaTime);
         lastFrameTime = System.nanoTime();
+
         repaint();
     }
 
