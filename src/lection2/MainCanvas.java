@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainCanvas extends JPanel {
-    private final MainWindow controller;
+    private final CanvasRepaintListener controller;
+   //private final MainWindow controller;
     private long lastFrameTime;
 
     public MainCanvas(MainWindow controller) {

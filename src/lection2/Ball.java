@@ -18,13 +18,15 @@ public class Ball extends Sprite {
     }
 
     @Override
-    void render(MainCanvas canvas, Graphics g) {
+    public void render(MainCanvas canvas, Graphics g) {
+        System.out.println("Ball render");
         g.setColor(color);
         g.fillOval((int)getLeft(),(int)getRight(),(int)getWeigth(),(int)getHeight());
     }
 
     @Override
-    void update(MainCanvas canvas, float deltaTime){
+    public void update(MainCanvas canvas, float deltaTime){
+        //System.out.println("Ball update");
         x += vX * deltaTime;
         y += vY * deltaTime;
         if (getLeft()<canvas.getLeft()) {setLeft(canvas.getLeft());
