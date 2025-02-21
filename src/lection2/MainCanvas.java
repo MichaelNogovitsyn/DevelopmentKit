@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class MainCanvas extends JPanel {
     private final MainWindow controller;
-private  long lastFrameTime;
+    private long lastFrameTime;
 
     public MainCanvas(MainWindow controller) {
         this.controller = controller;
@@ -19,15 +19,13 @@ private  long lastFrameTime;
 
         try {
             Thread.sleep(16);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         controller.setBackground(Color.CYAN);
-        float deltaTime = (System.nanoTime() - lastFrameTime)*0.000000001f;
-        controller.onDrawFrame(this,g,deltaTime);
+        float deltaTime = (System.nanoTime() - lastFrameTime) * 0.000000001f;
+        controller.onDrawFrame(this, g, deltaTime);
         lastFrameTime = System.nanoTime();
-
         repaint();
     }
 
