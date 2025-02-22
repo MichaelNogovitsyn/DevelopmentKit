@@ -30,8 +30,8 @@ public class MainWindow extends JFrame implements  CanvasRepaintListener{
     }
 
     private void update(MainCanvas canvas, float deltaTime) {
-        for (int i = 0; i < sprites.length; i++) {
-            sprites[i].update(canvas, deltaTime);
+        for (int i = 0; i < interactables.length; i++) {
+            interactables[i].update(canvas, deltaTime);
         }
     }
 
