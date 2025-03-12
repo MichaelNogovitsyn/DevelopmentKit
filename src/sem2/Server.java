@@ -1,18 +1,26 @@
 package sem2;
 
-public class Server  {
+public class Server {
     public static boolean isConnect;
-    Listenaranable action;
-
+    public static boolean isClose;
+    Listenaranable interface1;
+    Listenaranable interface2;
     public void buttonAction(String str) {
-
     }
 
-    public Server(Listenaranable action) {
-        this.action = action;
+    public Server(Listenaranable action,Listenaranable action2) {
+        this.interface1 = action;
+        this.interface2 = action2;
     }
-    void CallmetodIF(){
-        action.buttonAction("Hello. Ok!!!");
+
+    void callmetodIF() {
+        interface1.buttonAction("Button pressed from IF1");
+    }
+
+    void callmetodIF2() {
+        interface2.buttonAction("Button pressed from IF2");
     }
 }
+
+
 
