@@ -2,5 +2,5 @@ package sem2;
 
 public interface Listenaranable {
 
-     void buttonAction(String str);
+     void interfaceMetod(String str);
 }

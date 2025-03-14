@@ -1,24 +1,28 @@
 package sem2;
 
-public class Server {
+public class Server implements Clickable {
     public static boolean isConnect;
     public static boolean isClose;
     Listenaranable interface1;
-    Listenaranable interface2;
-    public void buttonAction(String str) {
+
+
+    public Server(Listenaranable interface1) {
+        this.interface1 = interface1;
     }
 
-    public Server(Listenaranable action,Listenaranable action2) {
-        this.interface1 = action;
-        this.interface2 = action2;
+    @Override
+    public void sendMsg(String str) {
+        interface1.interfaceMetod("Msg send");
     }
 
-    void callmetodIF() {
-        interface1.buttonAction("Button pressed from IF1");
+    @Override
+    public void disconnect() {
+        System.out.println("Disconnected");
     }
 
-    void callmetodIF2() {
-        interface2.buttonAction("Button pressed from IF2");
+    @Override
+    public void login(String login, String password) {
+        System.out.println("Login success");
     }
 }
 
