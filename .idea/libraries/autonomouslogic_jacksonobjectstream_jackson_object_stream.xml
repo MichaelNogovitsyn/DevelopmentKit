@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="autonomouslogic.jacksonobjectstream.jackson.object.stream" type="repository">
+    <properties maven-id="com.autonomouslogic.jacksonobjectstream:jackson-object-stream:0.2.19" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jackson-object-stream-0.2.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.16.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.16.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,35 +1,39 @@
 package GetPost;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Example {
-    private static final int CONNECTION_TIMEOUT = 1000;
+    public static void main(String[] args) {
+        try {
+            // GET-запрос
+            Get get = new Get();
+            String getResponse = get.sendGetRequest("http://jsonplaceholder.typicode.com/posts?_limit=10");
+            System.out.println("GET Response (Raw JSON): " + getResponse);
 
-    public static void main(String[] args) throws IOException {
-        final URL url = new URL("http://jsonplaceholder.typicode.com/posts?_limit=10");
-        final HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            // Парсинг JSON-ответа
+            GetParser parser = new GetParser();
+            Post[] posts = parser.parseJson(getResponse);
 
-        con.setRequestMethod("GET");
-        con.setRequestProperty("Content-Type", "application/json");
-        con.setConnectTimeout(CONNECTION_TIMEOUT);
-        con.setReadTimeout(CONNECTION_TIMEOUT);
-
-        try (final BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
-            String inputLine;
-            final StringBuilder content = new StringBuilder();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
+            // Вывод распарсенных данных
+            System.out.println("\nParsed Posts:");
+            for (Post post : posts) {
+                System.out.println(post);
             }
-            //return content.toString();
-            System.out.println(content.toString());
-        } catch (final Exception ex) {
-            ex.printStackTrace();
-            System.out.println("");
-            //return "";
+
+            // POST-запрос
+            Post postRequest = new Post();
+            Map<String, String> parameters = new HashMap<>();
+            parameters.put("title", "foo");
+            parameters.put("body", "bar");
+            parameters.put("userId", "1");
+
+            String postResponse = postRequest.sendPostRequest("http://jsonplaceholder.typicode.com/posts", parameters);
+            System.out.println("\nPOST Response: " + postResponse);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
