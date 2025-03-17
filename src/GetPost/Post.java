@@ -5,10 +5,22 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 public class Post {
     private static final int CONNECTION_TIMEOUT = 1000; // Таймаут подключения
+    @JsonProperty("userId") // Указываем, что поле соответствует "userId" в JSON
+    private int userId;
 
+    @JsonProperty("id") // Указываем, что поле соответствует "id" в JSON
+    private int id;
+
+    @JsonProperty("title") // Указываем, что поле соответствует "title" в JSON
+    private String title;
+
+    @JsonProperty("body") // Указываем, что поле соответствует "body" в JSON
+    private String body;
+
+    // Метод для отправки POST-запроса
     public String sendPostRequest(String url, Map<String, String> parameters) throws IOException {
         HttpURLConnection con = null;
         BufferedReader in = null;
@@ -61,5 +73,47 @@ public class Post {
         return resultString.length() > 0
                 ? resultString.substring(0, resultString.length() - 1) // Убираем последний символ '&'
                 : resultString;
+    }
+    // Геттеры и сеттеры
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "userId=" + userId +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
     }
 }

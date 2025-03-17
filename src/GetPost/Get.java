@@ -7,6 +7,7 @@ import java.net.URL;
 public class Get {
     private static final int CONNECTION_TIMEOUT = 1000; // Таймаут подключения
 
+    // Метод для отправки GET-запроса
     public String sendGetRequest(String url) throws IOException {
         HttpURLConnection con = null;
         BufferedReader in = null;
