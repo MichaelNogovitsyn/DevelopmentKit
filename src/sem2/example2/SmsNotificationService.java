@@ -6,3 +6,4 @@ public class SmsNotificationService implements NotificationService {
         System.out.println("Sending SMS to " + recipient + ": " + message);
     }
 }
+
